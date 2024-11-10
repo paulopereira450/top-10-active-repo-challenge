@@ -3,10 +3,17 @@
 ## Considerations or choices taken during the development of the script
 
 1. **Definition of the Activity Score**: To calculate the score of the repositories I used this three metrics:
-**Commit Amount**: The sum of all the commits done to the repository.  
+
+
+**Commit Amount**: The sum of all the commits done to the repository.
+
 **Activity Decay Rate**: Applied a decay rate to each activity, making older commits less influential on the score.
+
 **Unique Contributor Count**: Sums all the contributors for each repository.
+
 **Activity Weight Calculation**: Calculates a weighted score for each repository based on the changes applied on the commits. In order to not give as much value to activities with large changes, since the repositories could have different sizes, a logarithmic scaling was applied to reduce the value of this metric. The procedure is applied to the files changed, additions and deletions.
+
+
 2. **Usage of a heap**: Since it was a large amount of repositories to validate and sort, and to avoid unnecessary procedures I used an heap to get and order the repositories with most score. This avoids the process of sorting all the repositories and will only manage the required amount of repositories to show. If the list exceeds the required size, it will remove the repo with the lowest score on the heap.
 
 # Improvements
